@@ -3,7 +3,6 @@ import json
 import locale
 import datetime
 import requests
-import pandas as pd
 import time
 
 from git import Repo
