@@ -74,18 +74,9 @@ def parse_rsc_page(page):
 
     return starttimes, nreservations
 
-def update_stored_data(starttimes, nreservations):
+def store_full_data(starttimes, nreservations):
     current_time = datetime.datetime.now()
 
-    today = {}
-    for i, date in enumerate(starttimes):
-        if date.date() == current_time.date():
-            datestr = date.strftime("%Y_%m_%d_%H_%M")
-            today[datestr] = nreservations[i]
-    
-    with open("docs/today.json", "w") as f:
-        json.dump(today, f)
-    
     fulldata = {}
     for i, date in enumerate(starttimes):
         datestr = date.strftime("%Y_%m_%d_%H_%M")
@@ -94,6 +85,30 @@ def update_stored_data(starttimes, nreservations):
     current_str = current_time.strftime("%Y_%m_%d_%H_%M")
     with open(f"data/{current_str}.json", "w") as f:
         json.dump(fulldata, f)
+
+def plotly_today(starttimes, nreservations):
+    today = {}
+
+    current_time = datetime.datetime.now()
+
+    today['updatetime'] = current_time.strftime("%m-%d %H:%M")
+    if current_time.hour > 22:
+        current_time = current_time + datetime.timedelta(days=1)
+
+    
+    todaytime = []
+    todayres = []
+    for i, date in enumerate(starttimes):
+        if date.date() == current_time.date():
+            datestr = date.strftime("%H:%M")
+            todaytime.append(datestr)
+            todayres.append(nreservations[i])
+    today['time'] = todaytime
+    today['nres'] = todayres
+    
+
+    with open("docs/today.json", "w") as f:
+        json.dump(today, f)
 
 def push_to_git():
     try:
@@ -112,7 +127,8 @@ def main():
     load_dotenv()
     rawpage = get_rsc_rawsite()
     starttimes, nreservations = parse_rsc_page(rawpage)
-    update_stored_data(starttimes, nreservations)
+    plotly_today(starttimes, nreservations)
+    store_full_data(starttimes, nreservations)
     push_to_git()
 
 if __name__ == "__main__":
