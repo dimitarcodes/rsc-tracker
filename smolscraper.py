@@ -83,7 +83,10 @@ def store_full_data(starttimes, nreservations):
         fulldata[datestr] = nreservations[i]
     
     current_str = current_time.strftime("%Y_%m_%d_%H_%M")
-    with open(f"data/{current_str}.json", "w") as f:
+    fpath = os.environ.get('GIT_REPO_PATH')
+    fpath = fpath + f"data/{current_str}.json"
+
+    with open(fpath, "w") as f:
         json.dump(fulldata, f)
 
 def plotly_today(starttimes, nreservations):
@@ -106,8 +109,9 @@ def plotly_today(starttimes, nreservations):
     today['time'] = todaytime
     today['nres'] = todayres
     
-
-    with open("docs/today.json", "w") as f:
+    fpath = os.environ.get('GIT_REPO_PATH')
+    fpath = fpath +"docs/today.json"
+    with open(fpath, "w") as f:
         json.dump(today, f)
 
 def push_to_git():
