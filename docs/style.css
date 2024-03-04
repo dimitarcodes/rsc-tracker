@@ -1,5 +1,6 @@
 body{
-    background-color: #46f3f0;
+    background-color: #000;
+    color:#ffffff;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -8,9 +9,10 @@ body{
 .vertdiv{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: 150vh;
 }
 
 .horizdiv{
@@ -18,9 +20,71 @@ body{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height:30vh;
+    padding: 5em 0 0 0;
 }
 
-.plotly{
-    width: 100%;
+
+div.header{
+    padding: 0.75em 0.5em 0em 2em;
+    display: flex;
+    justify-content: space-between;
 }
+
+span.title{
+    color: #ffffff;
+    font-size: 1em;
+    text-align: Left;
+    padding: 0.25em 0em 0em 0em;
+}
+
+span#dyntitle{
+    padding: 0.25em 0 0.5em 0;
+}
+
+span#now{
+    color: #ffffff;
+    font-size: 0.75em;
+    text-align: Right;
+    padding: 0 0 0 0;
+}
+
+.arrows{
+    padding: 0.25em 0 0 0;
+}
+.arrow{
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 100%;
+    box-shadow:#ff0000 0px 0px 10px;
+    padding: 0 0.2em 0 0.2em;
+}
+.chart-container{
+    width: 60vw;
+    height: auto;
+    padding: 0 0 0.5em 0em;
+    background-color: #565252;
+    border-radius: 3%;
+    border: 1px solid #ff0000;
+    box-shadow: #ff0000 0px 0px 10px;
+    
+}
+
+@media screen and (max-width: 600px) {
+    .chart-container{
+        width: 98vw;
+    }
+
+    .vertdiv{
+        max-height: 80vh;
+    }
+
+    .horizdiv{
+        padding: 0em 0 0 0;
+    }
+    
+    div.header{
+        padding-left: 0.5em;
+    }
+} 
+
+

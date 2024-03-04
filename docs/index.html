@@ -3,17 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.plot.ly/plotly-2.29.1.min.js" charset="utf-8"></script>
-    
     <link rel="stylesheet" href="style.css">
-    <title>RSC Tracker</title>
+    <link rel="icon" href="dumbell.png">
+    <title>RSC Gym Tracker</title>
 </head>
 <body>
-    <div class = "vertdiv">
-        
-        <div id='plotlydiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <div class="vertdiv">
+        <div class = "horizdiv">
+            <div class="chart-container">
+                <div class="header">
+                    <span class="title">Reserved Spots @ RSC Gym</span>
+                    <span id="now">Today,</span>
+                </div>
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+        <div class = "horizdiv">
+            <div class="chart-container">
+                <div class="header">
+                    <span class="title" id="dyntitle">Historic Reservation Data for</span>
+                    <div class="arrows">
+                        <button class='arrow' id="prevday">&#9664;</button>
+                        <span>DAY</span>
+                        <button class='arrow' id="nextday">&#9654;</button>
+                    </div>
+                </div>
+                <canvas id="histchar"></canvas>
+            </div>
+        </div>
+
     </div>
-    
-    <script src="script.js"></script>
+        
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./script.js"></script>
+
 </body>
 </html>
