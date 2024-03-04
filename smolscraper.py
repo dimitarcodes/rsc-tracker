@@ -43,12 +43,13 @@ def parse_rsc_timeslot(datestr, timestr):
 
 def parse_rsc_res(resstr):
     try:
-        if resstr.strip()=='VOL':
+        if 'VOL' in resstr: # 50 out of 60 spots taken
             return 60
         else:
             nres = resstr.strip().split("/")[0]
             return int(nres)
     except:
+        print('Error parsing resstr:', resstr)
         return -1 # error occured
     
 def parse_rsc_page(page):
