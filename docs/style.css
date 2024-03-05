@@ -21,7 +21,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height:30vh;
-    padding: 5em 0 0 0;
+    padding: 5em 0 5em 0;
 }
 
 
@@ -40,6 +40,11 @@ span.title{
 
 span#dyntitle{
     padding: 0.25em 0 0.5em 0;
+}
+
+span.bold{
+    font-weight: bold;
+    color: rgb(255, 0, 0);
 }
 
 span#now{
@@ -69,8 +74,16 @@ span#now{
     
 }
 
+p{
+    width: 60vw;
+
+}
+
 @media screen and (max-width: 600px) {
     .chart-container{
+        width: 98vw;
+    }
+    p{
         width: 98vw;
     }
 
@@ -79,7 +92,7 @@ span#now{
     }
 
     .horizdiv{
-        padding: 0em 0 0 0;
+        padding: 0 0 0 0;
     }
     
     div.header{
