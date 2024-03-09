@@ -24,7 +24,9 @@ async function plottoday(data, historic) {
 	// get historic data for today's day of week
 	let date = new Date()
 	let d = date.getDay()
-	let today = historic[d]
+	let dh = d-1
+	if (dh<0){dh=6}
+	let today = historic[dh]
 
 	// get only times that concern us
 	let firsttime = time[0]
