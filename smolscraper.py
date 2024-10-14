@@ -25,7 +25,7 @@ def get_rsc_rawsite(sport="fitness", verb=0):
     url = "https://publiek.usc.ru.nl/publiek/laanbod.php?PRESET[Laanbod][inschrijving_id_pool_id][]=768114_2"
 
     body = {
-        "PRESET[Laanbod][inschrijving_id_pool_id][]": "798647_2",
+        "PRESET[Laanbod][inschrijving_id_pool_id][]": "859942_2",
         "PRESET[Laanbod][where_naam_ibp][]": "pack=a%3A5%3A%7Bs%3A6%3A%22n.naam%22%3Bs%3A7%3A%22Fitness%22%3Bs%3A12%3A%22jlap.pool_id%22%3Bs%3A1%3A%222%22%3Bs%3A10%3A%22jlap.intro%22%3Bs%3A0%3A%22%22%3Bs%3A16%3A%22jlap.betaalwijze%22%3Bs%3A6%3A%22gratis%22%3Bs%3A10%3A%22jlap.prijs%22%3Bs%3A4%3A%220.00%22%3B%7D",
     }
     cookies={"publiek": getAuthCookie()}
