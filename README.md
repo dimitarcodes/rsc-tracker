@@ -8,9 +8,6 @@ An application that periodically fetches the RSC Gym's reservations data, and pl
     - for scheduling the ETL pipeline, ML model update, updating static website
 * PostgreSQL
     - for backend of Airflow and storing reservation data
-* PySpark
-    - for analyzing the data
-    - potentially do predictive modelling
 * GitHub Pages
     - for rendering the 'static' website
     - alternative - host on AWS
